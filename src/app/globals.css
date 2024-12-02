@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+.text-color{
+  color:#4461F2;
+}
+.bg-color{
+  color:#4461F2;
+}
+.heading-color{
+color: #122D9C;
+}
+
