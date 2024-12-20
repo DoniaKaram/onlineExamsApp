@@ -28,4 +28,33 @@ body {
 .heading-color{
 color: #122D9C;
 }
+.w-45{
+  width: 45%;
+}
+body{
+  background-color: gainsboro;
+}
+.w-30{
+  
+ 
+  max-width: calc(33.33%-16px);
+}
+
+.Grid {
+  border: 1px solid #d9dddd;
+}
+
+.GridItemEven {
+  background-color: #f8f8f0;
+}
+.w-30{
+  width: 33.333%;
+}
+.card{ 
+  cursor: pointer;
+}
+.instructions{
+ list-style-type: circle;
+}
+
 

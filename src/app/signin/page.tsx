@@ -10,11 +10,15 @@ import apple from "../assets/images/Logo-apple.png";
 import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useRouter } from 'next/navigation';
 import axios from "axios";
 import Welcome from "../Welcome/page";
+import { useDispatch } from "react-redux";
+import {store}from '@/lib/store'
+import { userLogin } from "@/lib/authSlice";
+import { useRouter } from 'next/navigation';
 export default function signin() {
   const router=useRouter();
+  let dispatch=useDispatch<typeof store.dispatch>()
    const [userMessage,setUserMessage]=useState(null);
    const [error,setError]=useState(null)
   let validationSchema = Yup.object({
@@ -34,24 +38,22 @@ export default function signin() {
       email: "",
       password: "",
     },
-    onSubmit: function (values) {
+    onSubmit:  (values)=> {
       console.log(values);   
-      login(values);
+      dispatch(userLogin(values)).then((res)=>{
+        console.log(res)
+        if(res.payload.data.message==="success"){
+            localStorage.setItem("userToken",res.payload.data.token)
+            router.push('/');
+        } 
+      }).catch((err)=>{
+         console.log(err)
+      });
+      
     },
     validationSchema,
   });
-  async function login(values:object){
-    return await axios.post("https://exam.elevateegy.com/api/v1/auth/signin",values)
-    .then((data)=>{
-      console.log(data)
-      setUserMessage(data.data.message)
-      router.push('/');
-    })
-    .catch((error)=>{
-      console.log(error)
-      setError(error.response.data.message)
-    });
-}
+ 
   return (
     <>
       <div className="container mx-auto my-10 w-2/4  flex shadow-sm border-spacing-5">

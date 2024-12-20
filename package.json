@@ -9,15 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.4.0",
     "axios": "^1.7.8",
     "bcrypt": "^5.1.1",
     "exams": "file:",
+    "flowbite": "^2.5.2",
     "flowbite-react": "^0.10.2",
     "formik": "^2.4.6",
-    "next": "15.0.3",
+    "next": "^15.0.4",
     "next-auth": "^4.24.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
+    "react-virtualized": "^9.22.5",
+    "react-window": "^1.8.10",
+    "virtual-scroll": "^2.2.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {
